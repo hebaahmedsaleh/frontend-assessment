@@ -1,12 +1,12 @@
-import { FC } from 'react'
-import styles from 'components/card.module.css'
+import { FC } from 'react';
+import styles from 'components/card.module.css';
 
 interface Photo {
-  albumId: number
-  title: string
-  id: number
-  url: string
-  thumbnailUrl: string
+  albumId: number;
+  title: string;
+  id: number;
+  url: string;
+  thumbnailUrl: string;
 }
 
 export const Card: FC<Photo> = ({ albumId, title, url, thumbnailUrl }) => {
@@ -17,5 +17,5 @@ export const Card: FC<Photo> = ({ albumId, title, url, thumbnailUrl }) => {
         {title}
       </p>
     </div>
-  )
-}
+  );
+};

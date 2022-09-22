@@ -1,5 +1,5 @@
-import React from 'react'
-import 'components/loading.css'
+import React from 'react';
+import 'components/loading.css';
 
 const Loading = () => (
   <div className='lds-ring'>
@@ -8,6 +8,6 @@ const Loading = () => (
     <div></div>
     <div></div>
   </div>
-)
+);
 
-export default Loading
+export default Loading;

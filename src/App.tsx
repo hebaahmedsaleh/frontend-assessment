@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import React from 'react';
+import { Link, Outlet } from 'react-router-dom';
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
       </nav>
       <Outlet />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
