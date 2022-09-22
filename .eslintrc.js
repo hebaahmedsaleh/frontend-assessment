@@ -22,7 +22,8 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     camelcase: 'error',
     quotes: ['error', 'single'],
-    'no-duplicate-imports': 'error'
+    'no-duplicate-imports': 'error',
+    'no-undef': 'warn'  
   },
   settings: {
     'import/resolver': {
