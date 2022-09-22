@@ -1,11 +1,10 @@
 import { useEffect, useState, FC } from 'react';
 
-interface photo {
-  albumId: number;
+interface Post {
   title: string;
   id: number;
-  url: string;
-  thumbnailUrl: string;
+  body: string;
+  authorId: string;
 }
 
 type Props = {
@@ -23,23 +22,23 @@ const RenderStateContainer: FC<Props> = ({ children }) => {
 };
 
 const fetchData = async () => {
-  const photos = await fetch('https://jsonplaceholder.typicode.com/photos');
-  if (!photos.ok) {
-    throw Error(photos.statusText);
+  const posts = await fetch('https://jsonplaceholder.typicode.com/posts');
+  if (!posts.ok) {
+    throw Error(posts.statusText);
   }
-  const photosJson = await photos.json();
+  const postsJson = await posts.json();
 
-  return photosJson;
+  return postsJson;
 };
 
 export function Task1() {
-  const [photos, setphotos] = useState<photo[]>([]);
+  const [posts, setposts] = useState<Post[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [hasError, setHasError] = useState<Error>();
 
   useEffect(() => {
     fetchData()
-      .then((result) => setphotos(result))
+      .then((result) => setposts(result))
       .catch((error) => setHasError(error))
       .finally(() => setIsLoading(false));
   }, []);
@@ -51,10 +50,10 @@ export function Task1() {
       </RenderStateContainer>
     );
 
-  if (!isLoading && !photos.length && !hasError)
+  if (!isLoading && !posts.length && !hasError)
     return (
       <RenderStateContainer>
-        <h1> There is no photos yet.</h1>
+        <h1> There is no posts yet.</h1>
       </RenderStateContainer>
     );
 
@@ -68,10 +67,10 @@ export function Task1() {
   return (
     <div>
       <h1>Task 1:</h1>
-      {photos.map((photo: photo) => (
-        <div key={photo.id}>
-          <h1 style={{ marginBlock: 0 }}>{photo.title}</h1>
-          <h2 style={{ marginTop: 0 }}>{photo.albumId.toString()}</h2>
+      {posts.map((post: Post) => (
+        <div key={post.id}>
+          <h1 style={{ marginBlock: 0 }}>{post.title}</h1>
+          <h2 style={{ marginTop: 0 }}>{post.body}</h2>
           <hr />
         </div>
       ))}

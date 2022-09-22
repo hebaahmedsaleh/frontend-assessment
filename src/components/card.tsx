@@ -9,10 +9,10 @@ interface Photo {
   thumbnailUrl: string;
 }
 
-export const Card: FC<Photo> = ({ albumId, title, url, thumbnailUrl }) => {
+export const Card: FC<Photo> = ({ title, url, thumbnailUrl }) => {
   return (
     <div className={styles.container}>
-      <img src={url} alt={thumbnailUrl} className={styles.img} />
+      <img src={url} alt={thumbnailUrl} className={styles.img} loading="lazy" />
       <p className={styles.title} title={title}>
         {title}
       </p>
