@@ -1,0 +1,21 @@
+import { FC } from 'react'
+import styles from 'components/card.module.css'
+
+interface Photo {
+  albumId: number
+  title: string
+  id: number
+  url: string
+  thumbnailUrl: string
+}
+
+export const Card: FC<Photo> = ({ albumId, title, url, thumbnailUrl }) => {
+  return (
+    <div className={styles.container}>
+      <img src={url} alt={thumbnailUrl} className={styles.img} />
+      <p className={styles.title} title={title}>
+        {title}
+      </p>
+    </div>
+  )
+}
