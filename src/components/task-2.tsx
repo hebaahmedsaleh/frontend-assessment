@@ -85,7 +85,7 @@ export function Task2() {
     );
 
   return (
-    <div className={styles.main}>
+    <div className={styles.main} aria-busy={false}>
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
         {photos.map((photo) => {
           return <Card key={photo.id} {...photo} />;
