@@ -1,4 +1,7 @@
 import { useEffect, useState, FC } from 'react';
+import { Link } from 'react-router-dom';
+
+import { API_URL } from '../constants';
 
 interface Post {
   title: string;
@@ -52,20 +55,20 @@ const RenderStateContainer: FC<Props> = ({ children }) => {
 };
 
 const fetchData = async () => {
-  const posts = await fetch('https://jsonplaceholder.typicode.com/posts');
-  const users = await fetch('https://jsonplaceholder.typicode.com/users');
+  const response = await Promise.all([
+    fetch(`${API_URL}/posts`),
+    fetch(`${API_URL}/users`)
+  ])
 
-  if (!posts.ok) {
-    throw Error(posts.statusText);
+  if (! (response[0].ok && response[1].ok)) {
+    throw Error('error in fetching data. ');
   }
 
-  if(!users.ok) {
-    throw Error(users.statusText);
-  }
+  const postResult = await response.find(res => res.url.includes('posts'));
+  const userResult = await response.find(res => res.url.includes('users'));
 
-  const postsJson = await posts.json();
-  const usersJson = await users.json();
-  console.log({ postsJson});
+  const postsJson = await postResult?.json();
+  const usersJson = await userResult?.json();
   
   let usersObjects: { [key: string]: User } = {};
   usersJson.forEach((elem: User) => {
@@ -113,6 +116,10 @@ export function Task1() {
 
   return (
     <div>
+        <h2>
+          <Link to='/task-2'>Task-2</Link>
+          </h2>
+            
       <h1>Task 1:</h1>
       {posts.map((post: ResultType) => (
         <div key={post.id}>

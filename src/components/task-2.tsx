@@ -8,6 +8,9 @@ import 'components/pagination.css';
 import styles from 'components/main.module.css';
 
 import Loading from './loading';
+import { Link } from 'react-router-dom';
+
+import { ITEMS_PER_PAGE, TOTAL_NO_PHOTOS } from '../constants';
 
 interface photo {
   albumId: number;
@@ -20,10 +23,6 @@ interface photo {
 type Props = {
   children: JSX.Element;
 };
-
-// we assume items total count is 100 photo
-const ITEMS_PER_PAGE = 20;
-const TOTAL_NO_PHOTOS = 100;
 
 const RenderStateContainer: FC<Props> = ({ children }) => {
   return <div className={styles.loading}>{children}</div>;
@@ -81,6 +80,11 @@ export function Task2() {
     );
 
   return (
+    <>
+      <h2>
+          <Link to='/task-1'>Task-1</Link>
+      </h2>
+
     <div className={styles.main} aria-busy={false}>
       <div style={{ display: 'flex', flexWrap: 'wrap' }} data-testid="main">
         {photos.map((photo) => {
@@ -97,5 +101,6 @@ export function Task2() {
         current={currentPage}
       />
     </div>
+  </>
   );
 }

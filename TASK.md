@@ -11,7 +11,6 @@
 5. add npm packages for pagination
 6. remove unused files
 7. change routes to make task2 the root route
+8. get constants from constants
 
-## Task1
 
-1. create
