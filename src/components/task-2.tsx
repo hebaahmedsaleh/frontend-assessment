@@ -57,11 +57,7 @@ export function Task2() {
       .finally(() => setIsLoading(false));
   }, [currentPage]);
 
-  const handlePageChange = (selected: number) => {
-    console.log(`User requested page number ${selected}`);
-
-    goTo(selected);
-  };
+  const handlePageChange = (selected: number) => goTo(selected);
 
   if (isLoading)
     return (
@@ -86,7 +82,7 @@ export function Task2() {
 
   return (
     <div className={styles.main} aria-busy={false}>
-      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap' }} data-testid="main">
         {photos.map((photo) => {
           return <Card key={photo.id} {...photo} />;
         })}

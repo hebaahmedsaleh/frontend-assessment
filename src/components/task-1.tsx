@@ -4,8 +4,38 @@ interface Post {
   title: string;
   id: number;
   body: string;
-  authorId: string;
+  userId: string;
 }
+
+interface Address {
+  city: string;
+  street: string;
+  suite: string;
+  zipcode: string;
+  geo: {
+    lat: string;
+    lng: string;
+  }
+}
+
+interface Company {
+  bs: string,
+  name: string;
+  catchPhrase: string;
+}
+
+interface User {
+  id: number;
+  name: string;
+  username: string;
+  email:string;
+  address : Address;
+  phone: string;
+  website: string;
+  company: Company;
+}
+
+type ResultType = Post & { authorName: string };
 
 type Props = {
   // eslint-disable-next-line no-undef
@@ -23,24 +53,41 @@ const RenderStateContainer: FC<Props> = ({ children }) => {
 
 const fetchData = async () => {
   const posts = await fetch('https://jsonplaceholder.typicode.com/posts');
+  const users = await fetch('https://jsonplaceholder.typicode.com/users');
+
   if (!posts.ok) {
     throw Error(posts.statusText);
   }
-  const postsJson = await posts.json();
 
-  return postsJson;
+  if(!users.ok) {
+    throw Error(users.statusText);
+  }
+
+  const postsJson = await posts.json();
+  const usersJson = await users.json();
+  console.log({ postsJson});
+  
+  let usersObjects: { [key: string]: User } = {};
+  usersJson.forEach((elem: User) => {
+    usersObjects = { ...usersObjects, [elem.id] : elem }
+  });
+
+  const result = postsJson.map((post: Post) => ({ ...post, authorName: usersObjects[post.userId]?.name }));
+
+  return result;
 };
 
 export function Task1() {
-  const [posts, setposts] = useState<Post[]>([]);
+  const [posts, setposts] = useState<ResultType[]>([]);
+
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [hasError, setHasError] = useState<Error>();
 
   useEffect(() => {
     fetchData()
-      .then((result) => setposts(result))
-      .catch((error) => setHasError(error))
-      .finally(() => setIsLoading(false));
+      .then((result: Array<ResultType>) =>setposts(result))
+      .catch((error: Error) => setHasError(error))
+      .finally(() => setIsLoading(false))
   }, []);
 
   if (isLoading)
@@ -67,10 +114,13 @@ export function Task1() {
   return (
     <div>
       <h1>Task 1:</h1>
-      {posts.map((post: Post) => (
+      {posts.map((post: ResultType) => (
         <div key={post.id}>
-          <h1 style={{ marginBlock: 0 }}>{post.title}</h1>
-          <h2 style={{ marginTop: 0 }}>{post.body}</h2>
+          
+          <h1 style={{ marginBlock: 0 }}>Title: {post.title}</h1>
+          <h2 style={{ marginTop: 0 }}>Description: {post.body}</h2>
+          <h2 style={{ marginTop: 0 }}> AuthorName: {post.authorName}</h2>
+
           <hr />
         </div>
       ))}
