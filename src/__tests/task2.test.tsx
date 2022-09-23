@@ -1,9 +1,7 @@
 import {
   render,
   screen,
-  waitFor,
   waitForElementToBeRemoved,
-  queryByTestId,
   fireEvent,
 } from '@testing-library/react';
 import { Task2 } from 'components/task-2';
