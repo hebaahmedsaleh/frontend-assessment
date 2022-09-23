@@ -82,25 +82,25 @@ export function Task2() {
   return (
     <>
       <h2>
-          <Link to='/task-1'>Task-1</Link>
+        <Link to='/task-1'>Task-1</Link>
       </h2>
 
-    <div className={styles.main} aria-busy={false}>
-      <div style={{ display: 'flex', flexWrap: 'wrap' }} data-testid="main">
-        {photos.map((photo) => {
-          return <Card key={photo.id} {...photo} />;
-        })}
-      </div>
+      <div className={styles.main} aria-busy={false}>
+        <div style={{ display: 'flex', flexWrap: 'wrap' }} data-testid='main'>
+          {photos.map((photo) => {
+            return <Card key={photo.id} {...photo} />;
+          })}
+        </div>
 
-      <Pagination
-        onChange={handlePageChange}
-        pageSize={ITEMS_PER_PAGE}
-        total={TOTAL_NO_PHOTOS}
-        hideOnSinglePage
-        showPrevNextJumpers
-        current={currentPage}
-      />
-    </div>
-  </>
+        <Pagination
+          onChange={handlePageChange}
+          pageSize={ITEMS_PER_PAGE}
+          total={TOTAL_NO_PHOTOS}
+          hideOnSinglePage
+          showPrevNextJumpers
+          current={currentPage}
+        />
+      </div>
+    </>
   );
 }

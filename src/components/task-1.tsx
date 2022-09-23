@@ -18,11 +18,11 @@ interface Address {
   geo: {
     lat: string;
     lng: string;
-  }
+  };
 }
 
 interface Company {
-  bs: string,
+  bs: string;
   name: string;
   catchPhrase: string;
 }
@@ -31,8 +31,8 @@ interface User {
   id: number;
   name: string;
   username: string;
-  email:string;
-  address : Address;
+  email: string;
+  address: Address;
   phone: string;
   website: string;
   company: Company;
@@ -55,27 +55,27 @@ const RenderStateContainer: FC<Props> = ({ children }) => {
 };
 
 const fetchData = async () => {
-  const response = await Promise.all([
-    fetch(`${API_URL}/posts`),
-    fetch(`${API_URL}/users`)
-  ])
+  const response = await Promise.all([fetch(`${API_URL}/posts`), fetch(`${API_URL}/users`)]);
 
-  if (! (response[0].ok && response[1].ok)) {
+  if (!(response[0].ok && response[1].ok)) {
     throw Error('error in fetching data. ');
   }
 
-  const postResult = await response.find(res => res.url.includes('posts'));
-  const userResult = await response.find(res => res.url.includes('users'));
+  const postResult = await response.find((res) => res.url.includes('posts'));
+  const userResult = await response.find((res) => res.url.includes('users'));
 
   const postsJson = await postResult?.json();
   const usersJson = await userResult?.json();
-  
+
   let usersObjects: { [key: string]: User } = {};
   usersJson.forEach((elem: User) => {
-    usersObjects = { ...usersObjects, [elem.id] : elem }
+    usersObjects = { ...usersObjects, [elem.id]: elem };
   });
 
-  const result = postsJson.map((post: Post) => ({ ...post, authorName: usersObjects[post.userId]?.name }));
+  const result = postsJson.map((post: Post) => ({
+    ...post,
+    authorName: usersObjects[post.userId]?.name,
+  }));
 
   return result;
 };
@@ -88,9 +88,9 @@ export function Task1() {
 
   useEffect(() => {
     fetchData()
-      .then((result: Array<ResultType>) =>setposts(result))
+      .then((result: Array<ResultType>) => setposts(result))
       .catch((error: Error) => setHasError(error))
-      .finally(() => setIsLoading(false))
+      .finally(() => setIsLoading(false));
   }, []);
 
   if (isLoading)
@@ -116,14 +116,13 @@ export function Task1() {
 
   return (
     <div>
-        <h2>
-          <Link to='/task-2'>Task-2</Link>
-          </h2>
-            
+      <h2>
+        <Link to='/task-2'>Task-2</Link>
+      </h2>
+
       <h1>Task 1:</h1>
       {posts.map((post: ResultType) => (
         <div key={post.id}>
-          
           <h1 style={{ marginBlock: 0 }}>Title: {post.title}</h1>
           <h2 style={{ marginTop: 0 }}>Description: {post.body}</h2>
           <h2 style={{ marginTop: 0 }}> AuthorName: {post.authorName}</h2>
