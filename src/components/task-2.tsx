@@ -1,5 +1,6 @@
 import { useEffect, useState, FC } from 'react';
 import Pagination from 'rc-pagination';
+import { Link } from 'react-router-dom';
 
 import usePagination from 'use-pagination';
 
@@ -8,21 +9,9 @@ import 'components/pagination.css';
 import styles from 'components/main.module.css';
 
 import Loading from './loading';
-import { Link } from 'react-router-dom';
+import { API_URL, ITEMS_PER_PAGE, TOTAL_NO_PHOTOS } from '../constants';
 
-import { ITEMS_PER_PAGE, TOTAL_NO_PHOTOS } from '../constants';
-
-interface photo {
-  albumId: number;
-  title: string;
-  id: number;
-  url: string;
-  thumbnailUrl: string;
-}
-
-type Props = {
-  children: JSX.Element;
-};
+import { Photo, Props } from 'types';
 
 const RenderStateContainer: FC<Props> = ({ children }) => {
   return <div className={styles.loading}>{children}</div>;
@@ -30,7 +19,7 @@ const RenderStateContainer: FC<Props> = ({ children }) => {
 
 const fetchData = async (page: number) => {
   const photos = await fetch(
-    `https://jsonplaceholder.typicode.com/photos?_page=${page}&_limit=${ITEMS_PER_PAGE}`,
+    `${API_URL}/photos?_page=${page}&_limit=${ITEMS_PER_PAGE}`,
   );
   if (!photos.ok) {
     throw Error(photos.statusText);
@@ -41,12 +30,17 @@ const fetchData = async (page: number) => {
 };
 
 export function Task2() {
-  const [photos, setphotos] = useState<photo[]>([]);
+  const [photos, setphotos] = useState<Photo[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [hasError, setHasError] = useState<Error>();
 
   const { goTo, currentPage } = usePagination();
 
+    /* - Make http requests to https://jsonplaceholder.typicode.com/posts & 
+      https://jsonplaceholder.typicode.com/users
+
+      handle Error and Loading States 
+    */
   useEffect(() => {
     setIsLoading(true);
 
@@ -87,7 +81,7 @@ export function Task2() {
 
       <div className={styles.main} aria-busy={false}>
         <div style={{ display: 'flex', flexWrap: 'wrap' }} data-testid='main'>
-          {photos.map((photo) => {
+          {photos.map((photo: Photo) => {
             return <Card key={photo.id} {...photo} />;
           })}
         </div>
