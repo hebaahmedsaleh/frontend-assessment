@@ -1,9 +1,4 @@
-import {
-  render,
-  screen,
-  waitForElementToBeRemoved,
-  fireEvent,
-} from '@testing-library/react';
+import { render, screen, waitForElementToBeRemoved, fireEvent } from '@testing-library/react';
 import { Task2 } from 'components/task-2';
 import Pagination from 'rc-pagination';
 

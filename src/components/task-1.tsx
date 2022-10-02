@@ -13,7 +13,6 @@ const RenderStateContainer: FC<Props> = ({ children }) => {
   );
 };
 
-
 const fetchData = async () => {
   const response = await Promise.all([fetch(`${API_URL}/posts`), fetch(`${API_URL}/users`)]);
 
@@ -28,7 +27,7 @@ const fetchData = async () => {
   const usersJson = await userResult?.json();
 
   let usersObjects: { [key: string]: User } = {};
-  usersJson.forEach((elem: User) => usersObjects = { ...usersObjects, [elem.id]: elem });
+  usersJson.forEach((elem: User) => (usersObjects = { ...usersObjects, [elem.id]: elem }));
 
   const result = postsJson.map((post: Post) => ({
     ...post,
@@ -44,7 +43,7 @@ export function Task1() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [hasError, setHasError] = useState<Error>();
 
-    /* - Make http requests to https://jsonplaceholder.typicode.com/posts & 
+  /* - Make http requests to https://jsonplaceholder.typicode.com/posts & 
       https://jsonplaceholder.typicode.com/users
 
       handle Error and Loading States 

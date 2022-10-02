@@ -9,10 +9,21 @@ import 'components/pagination.css';
 import styles from 'components/main.module.css';
 
 import Loading from './loading';
+import Header from './header';
+import NavBar from './nav-bar';
+import SideBar from './side-bar';
+import Content from './content';
+
 import { API_URL, ITEMS_PER_PAGE, TOTAL_NO_PHOTOS } from '../constants';
 
 import { Photo, Props } from 'types';
+import styled from 'styled-components';
 
+const Container = styled.div`
+  display: flex;
+  padding: 10vw;
+  background-color: #E2E2EA;
+`;
 const RenderStateContainer: FC<Props> = ({ children }) => {
   return <div className={styles.loading}>{children}</div>;
 };
@@ -27,7 +38,7 @@ const fetchData = async (page: number) => {
   return photosJson;
 };
 
-export function Task2() {
+export function Task3() {
   const [photos, setphotos] = useState<Photo[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [hasError, setHasError] = useState<Error>();
@@ -73,26 +84,13 @@ export function Task2() {
 
   return (
     <>
-      <h2>
-        <Link to='/task-1'>Task-1</Link>
-      </h2>
+      <Header />
+      <NavBar />
 
-      <div className={styles.main} aria-busy={false}>
-        <div style={{ display: 'flex', flexWrap: 'wrap' }} data-testid='main'>
-          {photos.map((photo: Photo) => {
-            return <Card key={photo.id} {...photo} />;
-          })}
-        </div>
-
-        <Pagination
-          onChange={handlePageChange}
-          pageSize={ITEMS_PER_PAGE}
-          total={TOTAL_NO_PHOTOS}
-          hideOnSinglePage
-          showPrevNextJumpers
-          current={currentPage}
-        />
-      </div>
+      <Container>
+        <Content />
+        <SideBar />
+      </Container>
     </>
   );
 }

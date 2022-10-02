@@ -5,13 +5,14 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Task1 } from './components/task-1';
 import { Task2 } from './components/task-2';
+import { Task3 } from './components/task-3';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Task2 />} />
+        <Route path='/' element={<Task3 />} />
         <Route path='/home' element={<App />} />
         <Route path='/task-1' element={<Task1 />} />
         <Route path='/task-2' element={<Task2 />} />
