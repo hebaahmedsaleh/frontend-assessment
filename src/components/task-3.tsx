@@ -22,7 +22,10 @@ import styled from 'styled-components';
 const Container = styled.div`
   display: flex;
   padding: 10vw;
-  background-color: #E2E2EA;
+  background-color: #e2e2ea;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 const RenderStateContainer: FC<Props> = ({ children }) => {
   return <div className={styles.loading}>{children}</div>;

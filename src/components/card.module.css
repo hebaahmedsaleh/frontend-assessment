@@ -1,9 +1,10 @@
 .container {
+  display: 'flex';
   height: auto;
   border-radius: 8px;
   border: 1px solid #efeff8;
   padding: 8px 16px;
-  width: 25%;
+  flex: 25%;
   margin: 8px;
   cursor: pointer;
 }
