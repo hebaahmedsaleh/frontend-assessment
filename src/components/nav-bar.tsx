@@ -16,7 +16,7 @@ const StyledNavBar = styled.nav`
   border-right: 1px solid #e1e1e1;
   padding-top: 100px;
   align-items: center;
-  justify-content: center
+  justify-content: center;
 `;
 
 const StyledIcon = styled.a`
@@ -28,9 +28,11 @@ const StyledIcon = styled.a`
   margin: 16px;
   border-radius: 4px;
 
-  &:hover, &:focus, &:active {
-    background-color: #5541D7;
-    color:white;
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: #5541d7;
+    color: white;
   }
 `;
 
@@ -42,16 +44,13 @@ const StyledImg = styled.img`
 const NavBar = () => {
   return (
     <StyledNavBar>
-      <StyledIcon href="./">
-        
+      <StyledIcon href='./'>
         <StyledImg src={dashboard} style={{ backgroundColor: 'grey' }} />
       </StyledIcon>
-      <StyledIcon href="./">
-        
+      <StyledIcon href='./'>
         <StyledImg src={customer} />
       </StyledIcon>
-      <StyledIcon href="./">
-        
+      <StyledIcon href='./'>
         <StyledImg src={analytics} />
       </StyledIcon>
     </StyledNavBar>
