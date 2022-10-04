@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Card } from './product-card';
+import Tabs from './tabs';
 
 import data from 'products.json';
 import { Product } from 'types';
@@ -55,6 +56,7 @@ const StyledSearchInput = styled.input`
     flex-grow: 1;
   }
 `;
+
 const MainContent = () => {
   return (
     <StyledMain>
@@ -63,6 +65,7 @@ const MainContent = () => {
         <StyledSearchIcon src={Search} />
       </div>
 
+      <Tabs />
       <div style={{ display: 'flex', flexWrap: 'wrap' }}>
         {data.products.map((product: Product) => {
           return <Card key={product.id} {...product} />;
