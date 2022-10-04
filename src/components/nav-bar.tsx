@@ -1,9 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import analytics from './analytics.png';
-import customer from './customer.png';
-import dashboard from './dashboard.png';
+import analytics from './icons/analytics.svg';
+import customer from './icons/customer.png';
+import dashboard from './icons/dashboard.svg';
+import employee from './icons/employee.svg';
+import product from './icons/product.svg';
+import copoun from './icons/copoun.svg';
 
 const StyledNavBar = styled.nav`
   background: #fff;
@@ -28,23 +31,34 @@ const StyledIcon = styled.a`
   margin: 16px;
   border-radius: 4px;
 
+  @media (max-width: 768px) {
+    margin: 10px;
+    padding: 8px;
+  }
+
+  &.selected,
   &:hover,
   &:focus,
   &:active {
     background-color: #5541d7;
     color: white;
+    fill: white;
   }
 `;
 
 const StyledImg = styled.img`
-  width: 30px;
-  height: 30px;
+  width: 24px;
+  height: 24px;
+  @media (max-width: 768px) {
+    width: 12px;
+    height: 12px;
+  }
 `;
 
 const NavBar = () => {
   return (
     <StyledNavBar>
-      <StyledIcon href='./'>
+      <StyledIcon href='./' className='selected'>
         <StyledImg src={dashboard} style={{ backgroundColor: 'grey' }} />
       </StyledIcon>
       <StyledIcon href='./'>
@@ -52,6 +66,18 @@ const NavBar = () => {
       </StyledIcon>
       <StyledIcon href='./'>
         <StyledImg src={analytics} />
+      </StyledIcon>
+
+      <StyledIcon href='./'>
+        <StyledImg src={product} />
+      </StyledIcon>
+
+      <StyledIcon href='./'>
+        <StyledImg src={employee} />
+      </StyledIcon>
+
+      <StyledIcon href='./'>
+        <StyledImg src={copoun} />
       </StyledIcon>
     </StyledNavBar>
   );

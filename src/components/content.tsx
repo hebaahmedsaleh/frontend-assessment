@@ -6,7 +6,7 @@ import Tabs from './tabs';
 import data from 'products.json';
 import { Product } from 'types';
 
-import Search from './search.svg';
+import Search from './icons/search.svg';
 
 const StyledMain = styled.div`
   display: flex;

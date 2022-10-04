@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import avatar from './avatar.png';
-import notification from './notification.png';
-import logo from './logo.png';
+import avatar from './icons/avatar.png';
+import notification from './icons/notification.png';
+import logo from './icons/logo.png';
 
 const StyledHeader = styled.header`
   background: #fff;
