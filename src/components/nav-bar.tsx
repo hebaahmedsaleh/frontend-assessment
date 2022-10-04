@@ -7,6 +7,7 @@ import dashboard from './icons/dashboard.svg';
 import employee from './icons/employee.svg';
 import product from './icons/product.svg';
 import copoun from './icons/copoun.svg';
+import settings from './icons/settings.svg';
 
 const StyledNavBar = styled.nav`
   background: #fff;
@@ -19,7 +20,7 @@ const StyledNavBar = styled.nav`
   border-right: 1px solid #e1e1e1;
   padding-top: 100px;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 `;
 
 const StyledIcon = styled.a`
@@ -58,27 +59,36 @@ const StyledImg = styled.img`
 const NavBar = () => {
   return (
     <StyledNavBar>
-      <StyledIcon href='./' className='selected'>
-        <StyledImg src={dashboard} style={{ backgroundColor: 'grey' }} />
-      </StyledIcon>
-      <StyledIcon href='./'>
-        <StyledImg src={customer} />
-      </StyledIcon>
-      <StyledIcon href='./'>
-        <StyledImg src={analytics} />
-      </StyledIcon>
+      <div>
+        <StyledIcon href='./' className='selected'>
+          <StyledImg src={dashboard} style={{ backgroundColor: 'grey' }} />
+        </StyledIcon>
+        <StyledIcon href='./'>
+          <StyledImg src={customer} />
+        </StyledIcon>
+        <StyledIcon href='./'>
+          <StyledImg src={analytics} />
+        </StyledIcon>
 
-      <StyledIcon href='./'>
-        <StyledImg src={product} />
-      </StyledIcon>
+        <StyledIcon href='./'>
+          <StyledImg src={product} />
+        </StyledIcon>
 
-      <StyledIcon href='./'>
-        <StyledImg src={employee} />
-      </StyledIcon>
+        <StyledIcon href='./'>
+          <StyledImg src={employee} />
+        </StyledIcon>
 
-      <StyledIcon href='./'>
-        <StyledImg src={copoun} />
-      </StyledIcon>
+        <StyledIcon href='./'>
+          <StyledImg src={copoun} />
+        </StyledIcon>
+      </div>
+
+      <div style={{ flex: 1 }} />
+      <div>
+        <StyledIcon href='./'>
+          <StyledImg src={settings} />
+        </StyledIcon>
+      </div>
     </StyledNavBar>
   );
 };
