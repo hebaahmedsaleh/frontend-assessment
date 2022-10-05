@@ -10,10 +10,16 @@ import 'components/pagination.css';
 
 const Container = styled.div`
   display: flex;
-  padding: 10vw;
+  padding: 40px 32px;
+  margin-left: 90px;
+  margin-top: 100px;
+
   background-color: #f7f7fc;
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     flex-direction: column;
+    padding: 20px 16px;
+    margin-left: 60px;
+    margin-top: 80px;
   }
 `;
 

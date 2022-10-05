@@ -8,7 +8,7 @@ import { colors } from 'components/color';
 const StyledImg = styled.img`
   width: 24px;
   height: 24px;
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     width: 12px;
     height: 12px;
   }

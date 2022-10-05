@@ -10,7 +10,7 @@ const StyledHeader = styled.header`
   background: ${colors.white};
   position: fixed;
   width: 100%;
-  height: 80px;
+  height: 103px;
   left: 0px;
   top: 0px;
   z-index: 1;

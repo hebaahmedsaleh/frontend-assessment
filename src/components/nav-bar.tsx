@@ -14,7 +14,7 @@ import { colors } from './color';
 const StyledNavBar = styled.nav`
   background: ${colors.white};
   position: fixed;
-  width: 7vw;
+  width: 112px;
   height: 100%;
   top: 0px;
   bottom: 0px;
@@ -23,10 +23,13 @@ const StyledNavBar = styled.nav`
   padding-top: 100px;
   align-items: center;
   justify-content: space-between;
+  @media (max-width: 992px) {
+    width: 80px;
+  }
 `;
 
 const StyledIcon = styled.a`
-  padding: 12px;
+  padding: 16px 0px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,7 +37,7 @@ const StyledIcon = styled.a`
   margin: 16px;
   border-radius: 4px;
 
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     margin: 10px;
     padding: 8px;
   }
@@ -52,7 +55,7 @@ const StyledIcon = styled.a`
 const StyledImg = styled.img`
   width: 24px;
   height: 24px;
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     width: 12px;
     height: 12px;
   }
@@ -62,32 +65,32 @@ const NavBar = () => {
   return (
     <StyledNavBar>
       <div>
-        <StyledIcon href='./' className='selected'>
+        <StyledIcon href='#' className='selected'>
           <StyledImg src={dashboard} style={{ backgroundColor: 'grey' }} />
         </StyledIcon>
-        <StyledIcon href='./'>
+        <StyledIcon href='#'>
           <StyledImg src={customer} />
         </StyledIcon>
-        <StyledIcon href='./'>
+        <StyledIcon href='#'>
           <StyledImg src={analytics} />
         </StyledIcon>
 
-        <StyledIcon href='./'>
+        <StyledIcon href='#'>
           <StyledImg src={product} />
         </StyledIcon>
 
-        <StyledIcon href='./'>
+        <StyledIcon href='#'>
           <StyledImg src={employee} />
         </StyledIcon>
 
-        <StyledIcon href='./'>
+        <StyledIcon href='#'>
           <StyledImg src={copoun} />
         </StyledIcon>
       </div>
 
       <div style={{ flex: 1 }} />
       <div>
-        <StyledIcon href='./'>
+        <StyledIcon href='#'>
           <StyledImg src={settings} />
         </StyledIcon>
       </div>

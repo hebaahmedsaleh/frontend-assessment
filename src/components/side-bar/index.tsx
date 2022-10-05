@@ -12,9 +12,9 @@ const StyledSideBar = styled.aside`
   flex-direction: column;
   background-color: white;
   flex: 3;
-  margin-left: 3vw;
+  margin-left: 28px;
   background-color: #f7f7fc;
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     margin: 0;
   }
 `;

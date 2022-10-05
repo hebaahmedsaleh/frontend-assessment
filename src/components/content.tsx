@@ -14,7 +14,7 @@ const StyledMain = styled.div`
   background-color: white;
   padding: 24px 16px;
   flex: 6;
-  @media (max-width: 768px) {
+  @media (max-width: 992px) {
     margin-bottom: 40px;
   }
 `;
