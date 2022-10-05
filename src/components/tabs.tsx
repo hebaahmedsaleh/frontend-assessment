@@ -4,7 +4,7 @@ import { colors } from './color';
 
 const StyledTab = styled.div`
   display: flex;
-  color: #92929d;
+  color: #${colors.greyText};
   &:focus,
   &:first-child {
     border-bottom: 1px solid ${colors.lightText};

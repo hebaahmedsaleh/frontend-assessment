@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import CartCard from 'components/cart-card';
-import { PromoDiscountCard } from './promo-discount-card';
+import CartCard from 'components/side-bar/cart-card';
+import { PromoDiscountCard } from 'components/side-bar/promo-discount-card';
 
 import { colors } from 'components/color';
+import PricingCard from './pricing-card';
 
 const StyledSideBar = styled.aside`
   display: flex;
@@ -56,20 +57,6 @@ export const StyledSecondaryButton = styled(StyledButton)`
     margin-left: 9px;
   }
 `;
-const StyledPrice = styled.h6`
-  color: #92929D;
-  font-family: Mulish;
-  font-weight: bold;
-  padding: 0;
-  margin: 0 0 16px;
-  font-size; 16px;
-`;
-
-const Data: { [key: string]: string } = {
-  'Sub Total': '$88',
-  'Tax Total': '$4',
-  Discount: '20%',
-};
 
 const SideBar = () => {
   return (
@@ -78,22 +65,7 @@ const SideBar = () => {
 
       <PromoDiscountCard />
 
-      <StyledCard>
-        {Object.keys(Data).map((item: string) => {
-          return (
-            <div key={item} style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <StyledPrice>{item}</StyledPrice>
-              <StyledPrice style={{ color: '#11142D' }}>{Data[item]}</StyledPrice>
-            </div>
-          );
-        })}
-        <div style={{ height: 1, width: '100%', backgroundColor: '#E1E1FB', marginBottom: 24 }} />
-
-        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <StyledPrice> Total </StyledPrice>
-          <StyledPrice style={{ color: '#11142D', fontSize: 24 }}> $32</StyledPrice>
-        </div>
-      </StyledCard>
+      <PricingCard />
 
       <StyledCard>
         <p style={{ marginBottom: 35, lineHeight: '120%' }}> Payment Mode </p>

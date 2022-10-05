@@ -47,10 +47,23 @@ const StyledSecondaryButton = styled(StyledButton)`
 
 const StyledDropDownBtn = styled(StyledSecondaryButton)`
   justify-content: space-between;
-  padding: 8px 20px;
+  padding: 8px 24px;
 
   &:not(:first-child) {
     margin-left: 0;
+  }
+
+  &:hover {
+    & > p {
+      color: ${colors.white};
+    }
+    & > img {
+      fill: ${colors.white};
+    }
+  }
+
+  & > p {
+    color: ${colors.lightText};
   }
 
   @media (max-width: 992px) {
@@ -62,9 +75,6 @@ const StyledDropDownBtn = styled(StyledSecondaryButton)`
     & > img {
       width: 8px;
       height: 8px;
-      &:hover {
-        fill: white;
-      }
     }
   }
 `;
@@ -72,10 +82,10 @@ const StyledDropDownBtn = styled(StyledSecondaryButton)`
 export const PromoDiscountCard = () => {
   return (
     <StyledCard>
-      <p style={{ marginBottom: 35 }}> Select available promo to apply </p>
+      <p style={{ marginBottom: 24 }}> Select available promo to apply </p>
 
       <StyledDropDownBtn>
-        <p style={{ fontSize: 16 }}>20% Off Entire Order</p>
+        <p>20% Off Entire Order</p>
         <StyledImg src={cheveron} />
       </StyledDropDownBtn>
     </StyledCard>
