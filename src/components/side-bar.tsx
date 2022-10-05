@@ -1,6 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import CartCard from 'components/cart-card';
+
+import cheveron from './icons/chevron-bottom.svg';
+
+const StyledImg = styled.img`
+  width: 24px;
+  height: 24px;
+  @media (max-width: 768px) {
+    width: 12px;
+    height: 12px;
+  }
+`;
+
 const StyledSideBar = styled.aside`
   display: flex;
   flex-direction: column;
@@ -60,6 +73,30 @@ const StyledPrice = styled.h6`
   margin: 0 0 16px;
   font-size; 16px;
 `;
+
+const StyledDropDownBtn = styled(StyledSecondaryButton)`
+  justify-content: space-between;
+  padding: 8px 20px;
+
+  &:not(:first-child) {
+    margin-left: 0;
+  }
+
+  @media (max-width: 992px) {
+    padding: 4px;
+    & > p {
+      font-size: 10px;
+    }
+
+    & > img {
+      width: 8px;
+      height: 8px;
+      &:hover {
+        fill: white;
+      }
+    }
+  }
+`;
 const Data: { [key: string]: string } = {
   'Sub Total': '$88',
   'Tax Total': '$4',
@@ -69,6 +106,8 @@ const Data: { [key: string]: string } = {
 const SideBar = () => {
   return (
     <StyledSideBar>
+      <CartCard />
+
       <StyledCard>
         {Object.keys(Data).map((item: string) => {
           return (
@@ -85,8 +124,18 @@ const SideBar = () => {
           <StyledPrice style={{ color: '#11142D', fontSize: 24 }}> $32</StyledPrice>
         </div>
       </StyledCard>
+
       <StyledCard>
-        <p style={{ fontFamily: 'Mulish', marginBottom: 35, lineHeight: '120%' }}> Payment Mode </p>
+        <p style={{ marginBottom: 35, lineHeight: '120%' }}> Select available promo to apply </p>
+
+        <StyledDropDownBtn>
+          <p style={{ fontSize: 16 }}>20% Off Entire Order</p>
+          <StyledImg src={cheveron} />
+        </StyledDropDownBtn>
+      </StyledCard>
+
+      <StyledCard>
+        <p style={{ marginBottom: 35, lineHeight: '120%' }}> Payment Mode </p>
         <div style={{ display: 'flex', marginBottom: 24 }}>
           <StyledSecondaryButton>Cash </StyledSecondaryButton>
           <StyledSecondaryButton>Card Now </StyledSecondaryButton>

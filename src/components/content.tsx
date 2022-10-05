@@ -13,7 +13,7 @@ const StyledMain = styled.div`
   flex-direction: column;
   background-color: white;
   padding: 24px 16px;
-  flex: 7;
+  flex: 6;
   @media (max-width: 768px) {
     margin-bottom: 40px;
   }
