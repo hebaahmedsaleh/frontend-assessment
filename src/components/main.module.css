@@ -3,7 +3,8 @@
   margin: 0;
   padding: 0;
   font-family: Mulish;
-  color: #11142D;
+  color: #11142d;
+  line-height: 120%;
 }
 .loading {
   display: flex;

@@ -9,8 +9,10 @@ import product from './icons/product.svg';
 import copoun from './icons/copoun.svg';
 import settings from './icons/settings.svg';
 
+import { colors } from './color';
+
 const StyledNavBar = styled.nav`
-  background: #fff;
+  background: ${colors.white};
   position: fixed;
   width: 7vw;
   height: 100%;

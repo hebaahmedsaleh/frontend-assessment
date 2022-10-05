@@ -11,7 +11,7 @@ import 'components/pagination.css';
 const Container = styled.div`
   display: flex;
   padding: 10vw;
-  background-color: #e2e2ea;
+  background-color: #f7f7fc;
   @media (max-width: 768px) {
     flex-direction: column;
   }

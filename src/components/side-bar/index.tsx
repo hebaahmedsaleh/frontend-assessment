@@ -2,17 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 import CartCard from 'components/cart-card';
+import { PromoDiscountCard } from './promo-discount-card';
 
-import cheveron from './icons/chevron-bottom.svg';
-
-const StyledImg = styled.img`
-  width: 24px;
-  height: 24px;
-  @media (max-width: 768px) {
-    width: 12px;
-    height: 12px;
-  }
-`;
+import { colors } from 'components/color';
 
 const StyledSideBar = styled.aside`
   display: flex;
@@ -20,19 +12,21 @@ const StyledSideBar = styled.aside`
   background-color: white;
   flex: 3;
   margin-left: 3vw;
-  background-color: #e2e2ea;
+  background-color: #f7f7fc;
   @media (max-width: 768px) {
     margin: 0;
   }
 `;
 
-const StyledCard = styled.div`
-  margin-bottom: 8px;
-  background-color: #fff;
+export const StyledCard = styled.div`
+  margin-bottom: 16px;
+  background-color: ${colors.white};
   padding: 16px 24px;
-  border-radius: 2px;
+  border-radius: 8px;
+  cursor: pointer;
+  align-items: center;
 `;
-const StyledButton = styled.button`
+export const StyledButton = styled.button`
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -49,16 +43,16 @@ const StyledButton = styled.button`
   cursor: pointer;
 `;
 
-const StyledSecondaryButton = styled(StyledButton)`
-  background: #fff;
+export const StyledSecondaryButton = styled(StyledButton)`
+  background: ${colors.white};
   border-color: #5541d7;
   color: #5541d7;
   height: 40px;
   padding: 4px 8px;
   &:hover {
     background: #5541d7;
-    border-color: #dbd7f4;
-    color: #dbd7f4;
+    border-color: ${colors.lightGrey};
+    color: ${colors.lightGrey};
   }
 
   &:not(:first-child) {
@@ -74,29 +68,6 @@ const StyledPrice = styled.h6`
   font-size; 16px;
 `;
 
-const StyledDropDownBtn = styled(StyledSecondaryButton)`
-  justify-content: space-between;
-  padding: 8px 20px;
-
-  &:not(:first-child) {
-    margin-left: 0;
-  }
-
-  @media (max-width: 992px) {
-    padding: 4px;
-    & > p {
-      font-size: 10px;
-    }
-
-    & > img {
-      width: 8px;
-      height: 8px;
-      &:hover {
-        fill: white;
-      }
-    }
-  }
-`;
 const Data: { [key: string]: string } = {
   'Sub Total': '$88',
   'Tax Total': '$4',
@@ -107,6 +78,8 @@ const SideBar = () => {
   return (
     <StyledSideBar>
       <CartCard />
+
+      <PromoDiscountCard />
 
       <StyledCard>
         {Object.keys(Data).map((item: string) => {
@@ -123,15 +96,6 @@ const SideBar = () => {
           <StyledPrice> Total </StyledPrice>
           <StyledPrice style={{ color: '#11142D', fontSize: 24 }}> $32</StyledPrice>
         </div>
-      </StyledCard>
-
-      <StyledCard>
-        <p style={{ marginBottom: 35, lineHeight: '120%' }}> Select available promo to apply </p>
-
-        <StyledDropDownBtn>
-          <p style={{ fontSize: 16 }}>20% Off Entire Order</p>
-          <StyledImg src={cheveron} />
-        </StyledDropDownBtn>
       </StyledCard>
 
       <StyledCard>

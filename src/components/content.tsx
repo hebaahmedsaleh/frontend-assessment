@@ -35,7 +35,7 @@ const StyledSearchInput = styled.input`
   width: 100%;
   background: #f7f7fc;
   border-radius: 8px;
-
+  border: 1px solid #000;
   &:focus,
   &:active {
     outline: none;
@@ -48,12 +48,6 @@ const StyledSearchInput = styled.input`
     align-items: center;
     letter-spacing: 0.008em;
     color: #9a9ab0;
-
-    /* Inside auto layout */
-
-    flex: none;
-    order: 1;
-    flex-grow: 1;
   }
 `;
 

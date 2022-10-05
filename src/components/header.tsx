@@ -4,9 +4,10 @@ import styled from 'styled-components';
 import avatar from './icons/avatar.png';
 import notification from './icons/notification.png';
 import logo from './icons/logo.png';
+import { colors } from './color';
 
 const StyledHeader = styled.header`
-  background: #fff;
+  background: ${colors.white};
   position: fixed;
   width: 100%;
   height: 80px;
@@ -43,7 +44,7 @@ const Header = () => {
 
         <div>
           <p style={{ color: '#11142D', opacity: 0.2, paddingBottom: 6 }}> Sumantu </p>
-          <p style={{ fontSize: 12 }}> Cashier </p>
+          <p style={{ fontSize: 12, color: '#9A9AB0' }}> Cashier </p>
         </div>
       </StyledAvatar>
     </StyledHeader>

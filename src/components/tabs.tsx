@@ -6,9 +6,9 @@ const StyledTab = styled.div`
   color: #92929d;
   &:focus,
   &:first-child {
-    border-bottom: 2px solid #5541d7;
+    border-bottom: 1px solid #5541d7;
     color: #11142d;
-    margin-bottom: -2px;
+    margin-bottom: -1px;
 
     & > p {
       font-weight: bold;
@@ -20,7 +20,7 @@ const TabsContainer = styled.div`
 display: flex;
 margin: 32px 54px;
 justify-content: space-between;
-border-bottom: 2px solid #92929d;
+border-bottom: 1px solid #F2F0FF;
 
 }`;
 
