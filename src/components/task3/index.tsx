@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 
 import usePagination from 'use-pagination';
 
-import { Card } from './card';
+import { Card } from '../card';
 import 'components/pagination.css';
 import styles from 'components/main.module.css';
 
-import Loading from './loading';
-import { API_URL, ITEMS_PER_PAGE, TOTAL_NO_PHOTOS } from '../constants';
+import Loading from '../loading';
+import { API_URL, ITEMS_PER_PAGE, TOTAL_NO_PHOTOS } from '../../constants';
 
 import { Photo, Props } from 'types';
 

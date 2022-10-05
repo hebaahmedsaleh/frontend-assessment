@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Header from './header';
-import NavBar from './nav-bar';
-import SideBar from './side-bar';
-import Content from './content';
+import Header from 'components/header';
+import NavBar from 'components/nav-bar';
+import SideBar from 'components/side-bar';
+import Content from 'components/content';
 
 import 'components/pagination.css';
 

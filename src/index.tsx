@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Task1 } from './components/task-1';
-import { Task2 } from './components/task-2';
-import { Task3 } from './components/task-3';
+import { Task1 } from './components/task1';
+import { Task2 } from './components/task2';
+import { Task3 } from './components/task3';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(

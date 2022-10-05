@@ -41,7 +41,7 @@ const StyledListItem = styled.li`
   & img {
     width: 64px;
     height: 64px;
-    border-radius: 4px;
+    border-radius: 8px;
   }
 
   & > div {

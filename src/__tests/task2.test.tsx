@@ -1,9 +1,9 @@
 import { render, screen, waitForElementToBeRemoved, fireEvent } from '@testing-library/react';
-import { Task2 } from 'components/task-2';
+import { Task3 } from 'components/task3';
 import Pagination from 'rc-pagination';
 
 beforeEach(() => {
-  render(<Task2 />);
+  render(<Task3 />);
 });
 
 test('should show loading once it is opened', () => {

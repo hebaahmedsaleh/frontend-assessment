@@ -35,7 +35,7 @@ const StyledIcon = styled.a`
   justify-content: center;
   cursor: pointer;
   margin: 16px;
-  border-radius: 4px;
+  border-radius: 8px;
 
   @media (max-width: 992px) {
     margin: 10px;

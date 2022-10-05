@@ -1,7 +1,7 @@
 import { useEffect, useState, FC } from 'react';
 import { Link } from 'react-router-dom';
 
-import { API_URL } from '../constants';
+import { API_URL } from '../../constants';
 
 import { Post, User, ResultType, Props } from 'types';
 

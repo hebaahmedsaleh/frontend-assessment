@@ -1,5 +1,5 @@
 import { render, screen, waitForElementToBeRemoved } from '@testing-library/react';
-import { Task1 } from 'components/task-1';
+import { Task1 } from 'components/task1';
 
 beforeEach(() => {
   render(<Task1 />);
