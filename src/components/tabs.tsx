@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import { colors } from './color';
 
 const StyledTab = styled.div`
   display: flex;
   color: #92929d;
   &:focus,
   &:first-child {
-    border-bottom: 1px solid #5541d7;
+    border-bottom: 1px solid ${colors.lightText};
     color: #11142d;
     margin-bottom: -1px;
 

@@ -43,7 +43,7 @@ const StyledIcon = styled.a`
   &:hover,
   &:focus,
   &:active {
-    background-color: #5541d7;
+    background-color: ${colors.lightText};
     color: white;
     fill: white;
   }

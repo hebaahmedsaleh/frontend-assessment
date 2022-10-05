@@ -34,10 +34,7 @@ export const StyledButton = styled.button`
   padding: 14px 24px;
   width: 100%;
   height: 48px;
-
-  /* Light/Primary Color/50% */
-
-  background: #5541d7;
+  background: ${colors.lightText};
   border-radius: 8px;
   color: white;
   cursor: pointer;
@@ -45,12 +42,12 @@ export const StyledButton = styled.button`
 
 export const StyledSecondaryButton = styled(StyledButton)`
   background: ${colors.white};
-  border-color: #5541d7;
-  color: #5541d7;
+  border-color: ${colors.lightText};
+  color: ${colors.lightText};
   height: 40px;
   padding: 4px 8px;
   &:hover {
-    background: #5541d7;
+    background: ${colors.lightText};
     border-color: ${colors.lightGrey};
     color: ${colors.lightGrey};
   }
